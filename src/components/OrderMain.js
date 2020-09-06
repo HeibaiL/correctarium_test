@@ -16,14 +16,17 @@ const OrderMain = () => {
                 <h3>ЗАМОВИТИ РЕДАГУВАННЯ</h3>
                 <p>
                     <span>Виправимо всі помилки, приберемо всі дурниці, перефразуємо невдалі місця, але сильно текст
-                        <br/> не переписуватимемо.
+                        <span className="nowrap"> не переписуватимемо.</span>
                           Зайвих виправлень не буде.<a href="https://correctarium.com/ua/price/proofreading"> Детальніше про редагування</a>
                     </span>
                 </p>
                 <OrderInputs onInputChange={onInputChange} input={input}/>
                 <LanguageSelect onSelectChange={onSelectChange}/>
+                <div className="input_filed"><input onChange={onInputChange} name="comment"
+                                                    placeholder="Стислий коментар або покликання"/>
+                </div>
             </div>
-            <SubmitOrder />
+            <SubmitOrder price={0.05}/>
         </div>
 
     </div>

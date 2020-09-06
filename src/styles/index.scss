@@ -8,6 +8,11 @@
 body {
   font-family: 'Helvetica';
 }
+.app{
+  height:100vh;
+  width:100vw;
+  overflow-x: hidden;
+}
 
 .container {
   @include for-desktop-up {
@@ -20,6 +25,7 @@ body {
     max-width: 540px;
   }
   max-width: 1140px;
+  min-width: 350px;
   margin: auto;
   padding: 0 15px;
   height: 60px;

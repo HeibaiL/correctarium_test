@@ -1,13 +1,7 @@
 @import "index";
 
 .order-inputs {
-  margin-bottom: 40px;
-
-  .input_filed {
-    position: relative;
-    height: 35px;
-    margin-bottom: 10px;
-  }
+  margin-bottom: 42px;
 
   .required {
     &:before {
@@ -21,26 +15,6 @@
     }
   }
 
-  input {
-    font-family: Helvetica;
-    margin-bottom: 10px;
-    border-radius: 2px;
-    height: 100%;
-    width: 100%;
-    font-size: 16px;
-    padding: 5px 10px;
-    border: 1px solid #eaeaea;
-    -webkit-box-sizing: border-box;
-
-    &::-webkit-input-placeholder {
-      opacity: 0.6;
-    }
-
-    &:focus {
-      outline: none;
-      border-color: #4a90e2;
-    }
-  }
 
   .text {
     position: relative;
