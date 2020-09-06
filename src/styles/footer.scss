@@ -1,0 +1,51 @@
+@import "index";
+
+.footer {
+  margin-top: 74px;
+  height: 70px;
+  @include for-phone-only{
+    margin-top: 25px;
+  }
+
+  .container {
+    padding: 0 17px;
+    @include for-tablet-portrait-up {
+      flex-direction: column;
+    }
+  }
+
+  .footer_info {
+    a {
+      padding: 8px 13px;
+      text-decoration: none;
+      color: #000;
+      font-weight: 600;
+      font-size: 18px;
+      @include for-tablet-portrait-up {
+        font-size: 16px;
+      }
+      @include for-phone-only{
+        font-size:14px;
+      }
+    }
+
+    margin-bottom: 25px;
+  }
+
+  .page_language {
+    margin-bottom: 25px;
+
+    p {
+      display: inline;
+      padding: 8px 13px;
+      color: #000;
+      font-weight: 600;
+      font-size: 18px;
+      @include for-tablet-portrait-up {
+        font-size: 16px;
+      }
+    }
+  }
+
+
+}

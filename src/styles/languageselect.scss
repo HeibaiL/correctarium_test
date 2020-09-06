@@ -1,6 +1,7 @@
 @import 'index';
 
 .select {
+  margin-bottom: 40px;
   h4 {
     font-size: 13px;
     margin-bottom: 20px;
@@ -19,7 +20,6 @@
     user-select: none;
   }
 
-  /* Hide the browser's default radio button */
   .select_item input {
     position: absolute;
     opacity: 0;
@@ -36,24 +36,20 @@
     border-radius: 50%;
   }
 
-  /* When the radio button is checked, add a blue background */
   .select_item input:checked ~ .checkmark {
     background-color: #2196F3;
   }
 
-  /* Create the indicator (the dot/circle - hidden when not checked) */
   .checkmark:after {
     content: "";
     position: absolute;
     display: none;
   }
 
-  /* Show the indicator (dot/circle) when checked */
   .select_item input:checked ~ .checkmark:after {
     display: block;
   }
 
-  /* Style the indicator (dot/circle) */
   .select_item .checkmark:after {
     top: 4px;
     left: 4px;

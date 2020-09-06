@@ -12,7 +12,7 @@ const OrderInputs = ({onInputChange, input}) => (
                 <span> Уведіть текст або </span>
                 <a href="#">завантажте файл</a>
             </label></div>
-        <p className="text_length">{input.text ? input.text.length : 0}</p>
+        <p className="text_length">{input.text && input.text.length}</p>
     </div>
 )
 export default OrderInputs;

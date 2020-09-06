@@ -1,0 +1,39 @@
+@import "index";
+
+.submit_order {
+  @include for-tablet-landscape-up{
+    width:100%;
+    padding-left: 0;
+  }
+  width: 24%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 20px;
+  margin-top: 38px;
+  border-top: 1px solid #eaeaea;
+
+  span {
+    margin-right: 6px;
+  }
+
+  .price {
+    margin: 30px;
+    color: #333;
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .submit_button {
+    max-width: 300px;
+    margin-top: -5px;
+    font-weight: 700;
+    width: 100%;
+    background: #1b5dab;
+    height: 100%;
+    font-sizE: 16px;
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 7px 30px;
+  }
+}

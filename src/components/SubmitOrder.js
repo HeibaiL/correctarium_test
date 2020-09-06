@@ -1,9 +1,19 @@
 import React from "react";
 
-const SubmitOrder = () => (
-    <div className="submit">
-        0.00grn
-        <button className="submit-order">
+import "../styles/submitorder.scss"
+
+const SubmitOrder = props => (
+    <div className="submit_order">
+        <div className="price">
+            <span>
+                {props.price}
+            </span>
+            <span>
+                грн
+            </span>
+        </div>
+        <button className="submit_button">
+            Замовити
         </button>
     </div>)
 export default SubmitOrder;
