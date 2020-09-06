@@ -1,0 +1,34 @@
+@import "responsive";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Helvetica';
+}
+
+.container {
+  @include for-desktop-up {
+    max-width: 960px;
+  }
+  @include for-tablet-landscape-up {
+    max-width: 720px;
+  }
+  @include for-tablet-portrait-up {
+    max-width: 540px;
+  }
+  max-width: 1140px;
+  margin: auto;
+  padding: 0 15px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+
+
+

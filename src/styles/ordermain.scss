@@ -1,0 +1,48 @@
+@import 'index';
+
+.order-main {
+  padding-top: 55px;
+  color: #212529;
+
+  .make-order {
+    flex: 3;
+    padding: 0 15px;
+
+    h3 {
+      font-weight: 700;
+      font-size: 16px;
+      color: #212529;
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-bottom: 8px;
+
+      span {
+        font-size: 15px;
+        line-height: 26px;
+
+        a {
+          text-decoration: none;
+          color: #4a90e2;
+
+          &:hover {
+            text-decoration: underline;
+
+          }
+        }
+      }
+    }
+
+  }
+
+  .submit {
+    flex: 1;
+  }
+
+  .container {
+    align-items: start;
+    padding: 0 15px;
+  }
+
+}
