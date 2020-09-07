@@ -1,11 +1,11 @@
-import React, {useState} from "react";
+import React from "react";
 
 const useSelect = () => {
-    const [selected, setSelected] = useState(null)
+    const [selected, setSelected] = React.useState(null)
 
     const onSelectChange = e => {
         const {value} = e.target;
-        setSelected(value)
+        setSelected(value.toUpperCase())
     }
     return {
         selected,

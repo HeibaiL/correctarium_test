@@ -1,11 +1,12 @@
 @import "index";
 
 .submit_order {
-  @include for-tablet-landscape-up{
-    width:100%;
+  @include for-tablet-landscape-up {
     padding-left: 0;
+    min-width: 100%;
   }
-  width: 24%;
+  flex: 1;
+  max-width: 260px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,7 +26,7 @@
   }
 
   .submit_button {
-    max-width: 300px;
+    max-width: 280px;
     margin-top: -5px;
     font-weight: 700;
     width: 100%;
@@ -35,5 +36,16 @@
     color: #ffffff;
     border-radius: 12px;
     padding: 7px 30px;
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  .estimated_time {
+    margin-top: -30px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    color: #999999;
   }
 }

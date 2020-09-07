@@ -2,8 +2,12 @@
 
 .order-main {
   min-height:75%;
+  margin-bottom: 25px;
+  padding-top: 55px;
+  color: #212529;
   @include for-tablet-landscape-up{
     min-height: 100%;
+    margin-bottom: 0;
   }
   @include for-phone-only{
     min-height: 950px;
@@ -18,9 +22,7 @@
       padding: 0 4px;
     }
   }
-  margin-bottom: 25px;
-  padding-top: 55px;
-  color: #212529;
+
   .input_filed {
     position: relative;
     height: 35px;
@@ -49,7 +51,7 @@
   }
 
   .make-order {
-    min-width:72%;
+    flex:3;
     padding: 0 15px;
     h3 {
       font-weight: 700;
