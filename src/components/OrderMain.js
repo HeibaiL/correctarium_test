@@ -16,7 +16,7 @@ const OrderMain = () => {
                 <h3>ЗАМОВИТИ РЕДАГУВАННЯ</h3>
                 <p>
                     <span>Виправимо всі помилки, приберемо всі дурниці, перефразуємо невдалі місця, але сильно текст
-                        <span className="nowrap"> не переписуватимемо.</span>
+                        <span className="nowrap"> не переписуватимемо. </span>
                           Зайвих виправлень не буде.<a href="https://correctarium.com/ua/price/proofreading"> Детальніше про редагування</a>
                     </span>
                 </p>
@@ -26,7 +26,7 @@ const OrderMain = () => {
                                                     placeholder="Стислий коментар або покликання"/>
                 </div>
             </div>
-            <SubmitOrder price={0.05}/>
+            <SubmitOrder length={input.text && input.text.length} language={selected}/>
         </div>
 
     </div>

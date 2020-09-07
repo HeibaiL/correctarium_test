@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 
 import '../styles/languageselect.scss'
 
@@ -18,7 +18,6 @@ const LanguageSelect = ({onSelectChange}) => (
                 <input type="radio" name="radio" value="english"/>
                 <span className="checkmark"/>
             </label>
-
         </div>
     </div>);
 export default LanguageSelect
