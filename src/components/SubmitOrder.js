@@ -6,16 +6,29 @@ import "../styles/submitorder.scss"
 
 const {START, END} = CONSTANTS.WORK_HOURS;
 
-const resetDate = (date, inst) => {
-    const hoursToAdd = date.getHours() - END >= 0 ? date.getHours() - END : date.getHours() + 24 - END;
-
+const calculateDeadline = (date, timeSpan) => {
     const newDate = new Date(date.getTime());
-
-    newDate.setDate(date.getDate() + (inst ? 0 : 1));
-    newDate.setHours(10 + hoursToAdd, 30);
+    const timeBeforeMidnight = (24 - END) * 60;
+    const reseted = new Date(newDate.getTime());
+    const minsInDay = 24 * 60;
+    const addDays = Math.round(timeSpan / minsInDay);
+    reseted.setHours(10, 30);
+    reseted.setDate(reseted.getDate() + 1);
+    newDate.setMinutes(newDate.getMinutes() + timeSpan);
+    newDate.setDate(newDate.getDate() + addDays);
     if (newDate.getHours() >= END) {
-        return resetDate(newDate)
+        let timeLeftDate = new Date(date);
+        timeLeftDate.setHours(19, 0);
+        let rest = (newDate.getTime() - timeLeftDate.getTime()) / 60000;
+        return calculateDeadline(reseted, rest)
+    } else if (newDate.getHours() < START) {
+        let timeLeftDate = new Date(newDate);
+        timeLeftDate.setHours(0, 0);
+        let rest = (newDate.getTime() - timeLeftDate.getTime()) / 60000;
+        console.log(newDate.getHours(), timeLeftDate.getDate())
+        return calculateDeadline(reseted, rest + timeBeforeMidnight)
     }
+
     return newDate
 }
 
@@ -45,25 +58,24 @@ const SubmitOrder = ({length, language}) => {
     const calculateTime = (length, language) => {
         if (!length || !language || !current) {
             return ""
-        };
-
+        }
+        ;
         const minsToAdd = Math.ceil(length / minLength) * 60;
-        let newDate = new Date();
+        let newDate = new Date(current.getTime());
+
+        if (current.getHours() >= END) {
+            newDate.setDate(newDate.getDate() + 1);
+            newDate.setHours(10, 0)
+        } else if (current.getHours() < START) {
+            newDate.setHours(10)
+        }
 
         if (length <= minLength) {
-            newDate = addMinutes(current, 60);
+            newDate = calculateDeadline(newDate, 60);
         } else if (length > minLength) {
-            newDate = addMinutes(current, minsToAdd + 30)
+            newDate = calculateDeadline(newDate, minsToAdd + 30)
         }
-
-        if (newDate.getHours() >= END) {
-            newDate = resetDate(newDate)
-        } else if (newDate.getHours() < START) {
-            newDate = resetDate(newDate, "foo")
-        }
-
-        let addTime = newDate.getTime() - current.getTime();
-
+        ;
         let {date, time} = parseDate(newDate);
         return `${date} о ${time}`;
     }
