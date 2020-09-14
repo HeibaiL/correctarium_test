@@ -9,7 +9,7 @@ const CONSTANTS = {
         },
         TEXT_LENGTH: {
             FOR_PRICE: 1000,
-            FOR_TIME: 650
+            FOR_TIME: 1333
         }
     },
     RUSSIAN: {
@@ -22,7 +22,7 @@ const CONSTANTS = {
         },
         TEXT_LENGTH: {
             FOR_PRICE: 1000,
-            FOR_TIME: 650
+            FOR_TIME: 1333
         }
     },
     ENGLISH: {
@@ -35,8 +35,13 @@ const CONSTANTS = {
         },
         TEXT_LENGTH: {
             FOR_PRICE: 1000,
-            FOR_TIME: 166
+            FOR_TIME: 333
         }
+    },
+    WORK_HOURS: {
+        START: 10,
+        END: 19
+
     }
 
 }
