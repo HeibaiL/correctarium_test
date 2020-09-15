@@ -16,9 +16,7 @@ const Header = () => (
                 </ul>
             </div>
             <button className="header-button"> Перевірити текст </button>
-
         </div>
-
     </div>
 )
 export default Header;
