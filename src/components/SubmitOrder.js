@@ -32,7 +32,7 @@ const SubmitOrder = ({length, language}) => {
         if (!length || !language || !current) {
             return ""
         };
-        
+
         const minsToAdd = Math.ceil(length / minLength) * 60;
         let newDate = new Date(current.getTime());
 
