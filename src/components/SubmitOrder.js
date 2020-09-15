@@ -1,53 +1,13 @@
 import React, {useState, useEffect} from "react";
 
-import {parseNumWithComma, parseDate, addMinutes} from "../helpers";
+import {parseNumWithComma, parseDate,calculateDeadline} from "../helpers";
 import CONSTANTS from "../constants";
 import "../styles/submitorder.scss"
-
-const {START, END} = CONSTANTS.WORK_HOURS;
-
-const is_weekend = function (date1) {
-    const dt = new Date(date1);
-
-    if (dt.getDay() === 6 || dt.getDay() === 0) {
-        return true;
-    }
-    return false;
-};
-
-const calculateDeadline = (date,
-                           timeSpan) => {
-    const newDate = new Date(date);
-    const startWorkDate = new Date(newDate.getTime());
-
-    startWorkDate.setHours(10, 0);
-
-    if(is_weekend(newDate)){
-        newDate.setDate(newDate.getDate() + 1);
-        return calculateDeadline(newDate, timeSpan)
-    }
-
-    const workingMins = 60 * 9;
-
-    const leftMins = workingMins - (newDate.getTime() - startWorkDate.getTime()) / 60000;
-
-    if (timeSpan > leftMins) {
-        const requiredDays = Math.floor(workingMins / leftMins);
-        const restToAdd = (timeSpan - leftMins);
-        newDate.setDate(requiredDays + newDate.getDate());
-        newDate.setHours(10, 0);
-        return calculateDeadline(newDate, restToAdd)
-
-    }
-
-    newDate.setMinutes(newDate.getMinutes() + timeSpan);
-
-    return newDate
-}
 
 const SubmitOrder = ({length, language}) => {
     const [current, setCurrent] = useState({});
 
+    const {START, END} = CONSTANTS.WORK_HOURS;
     const minLength = language && CONSTANTS[language].TEXT_LENGTH.FOR_TIME;
 
     useEffect(() => {
@@ -71,8 +31,8 @@ const SubmitOrder = ({length, language}) => {
     const calculateTime = (length, language) => {
         if (!length || !language || !current) {
             return ""
-        }
-        ;
+        };
+        
         const minsToAdd = Math.ceil(length / minLength) * 60;
         let newDate = new Date(current.getTime());
 
@@ -86,8 +46,7 @@ const SubmitOrder = ({length, language}) => {
             newDate = calculateDeadline(newDate, 60);
         } else if (length > minLength) {
             newDate = calculateDeadline(newDate, minsToAdd + 30)
-        }
-        ;
+        };
 
         let {date, time} = parseDate(newDate);
         return `${date} о ${time}`;
